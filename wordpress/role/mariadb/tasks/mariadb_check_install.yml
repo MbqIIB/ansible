@@ -1,0 +1,8 @@
+---
+- name Install mariadb
+  yum: name="{{ item }}" state=latest
+  with_itmes:
+    - mariadb
+    - mariadb-server
+    - MySQL-python
+  become: true
