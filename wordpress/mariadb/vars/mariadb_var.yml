@@ -20,4 +20,5 @@ mariadb_packages:
   - Mariadb-Client
   - galera
   - rsync
-  - MySQL-python 
+  - MySQL-python
+...
