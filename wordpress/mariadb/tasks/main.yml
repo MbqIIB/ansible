@@ -1,3 +1,5 @@
 ---
 tasks:
+  - include: tasks/mariadb_check_install.yml
   - include: tasks/mariadb_install.yml
+  - include: tasks/mariadb_configure.yml
