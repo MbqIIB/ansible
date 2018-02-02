@@ -1,6 +1,3 @@
 ---
-- name: restart mariadb
-  sytemd:
-    state: restarted
-    daemon_reload: yes
-    name: mariadb
+handlers:
+- import_tasks: tasks/mariadb_handler.yml
