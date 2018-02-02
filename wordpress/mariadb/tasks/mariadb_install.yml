@@ -9,16 +9,16 @@
     gpgcheck: yes
     file: MariaDB
 
-##MariaDBのインストール
-- name Install mariadb
   yum:
     name: "{{ item }}"
     state: present
     enablerepo: mariadb
-#  with_items: "{{ mariadb_packages }}"
-  with_items:
-      - MariaDB-Galera-server
-      - Mariadb-Client
-      - galera
-      - rsync
-      - MySQL-python
+  with_items: "{{ mariadb_packages }}"
+
+##MariaDBのインストール
+#  with_items:
+#      - MariaDB-Galera-server
+#      - Mariadb-Client
+#      - galera
+#      - rsync
+#      - MySQL-python
