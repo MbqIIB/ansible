@@ -14,7 +14,7 @@
     value: 1
     sysctl_set: yes
     reload: yes
-  with_itmes:
+  with_items:
     - net.ipv6.conf.all.disable_ipv6
     - net.ipv6.conf.defalut.disable_ipv6
 
