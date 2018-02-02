@@ -15,4 +15,10 @@
     name: "{{ item }}"
     state: present
     enablerepo: mariadb
-  with_items: "{{ mariadb_packages }}"
+#  with_items: "{{ mariadb_packages }}"
+  with_items:
+      - MariaDB-Galera-server
+      - Mariadb-Client
+      - galera
+      - rsync
+      - MySQL-python
