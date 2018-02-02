@@ -26,7 +26,7 @@
     update_cache: yes
 
 ## EPELリポジトリの追加
--name: configure import EPEL Repository
+- name: configure import EPEL Repository
   yum:
     name: epel-release
     state: latest
