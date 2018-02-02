@@ -1,2 +1,2 @@
 ---
-- include_vars: mariadb_var.yml
+- include_vars: vars/mariadb_var.yml
