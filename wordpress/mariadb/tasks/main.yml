@@ -1,4 +1,4 @@
 ---
-- include: tasks/mariadb_check_install.yml
-- include: tasks/mariadb_install.yml
-- include: tasks/mariadb_configure.yml
+- import_tasks: tasks/mariadb_check_install.yml
+- import_tasks: tasks/mariadb_install.yml
+- import_tasks: tasks/mariadb_configure.yml
