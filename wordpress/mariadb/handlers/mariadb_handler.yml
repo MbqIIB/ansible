@@ -1,7 +1,6 @@
 ---
-handlers:
-  - name: restart mariadb
-    sytemd:
-      state: restarted
-      daemon_reload: yes
-      name: mariadb
+- name: restart mariadb
+  sytemd:
+    state: restarted
+    daemon_reload: yes
+    name: mariadb
