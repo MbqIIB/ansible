@@ -1,3 +1,2 @@
 ---
-handlers:
-- import_tasks: tasks/mariadb_handler.yml
+- import_tasks: mariadb_handler.yml
