@@ -1,6 +1,6 @@
 ---
 - name: Deploy Database for wordpress
-- hosts: databases
+  hosts: databases
   become: true
 #  vars:
 #    ansible_sudo_pass: 'ansible'
