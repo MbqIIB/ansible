@@ -1,3 +1,4 @@
+---
 - name: Deploy Database for wordpress
 - hosts: databases
   become: true
