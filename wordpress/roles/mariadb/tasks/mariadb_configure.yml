@@ -52,7 +52,7 @@
       login_password: "{{ mariadb_root_pass }}"
       name: "{{ mariadb_sst_user }}"
       password: "{{ mariadb_sst_pass }}"
-      host: "{{ ansible_eth0.ipv4.network }}/{{ ansible_eth0.ipv4.netmast }}"
+      host: "{{ ansible_eth0.ipv4.network }}/{{ ansible_eth0.ipv4.netmask }}"
       priv: "*.*:RELOAD,LOCK TABLES,REPLICATION CLIENT"
       append_privs: yes
 
