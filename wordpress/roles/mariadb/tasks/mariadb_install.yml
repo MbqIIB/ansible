@@ -15,7 +15,7 @@
     name: "{{ item }}"
     state: present
 #    enablerepo: epel
-    enablerepo: mariadb
+    enablerepo: MariaDB
   with_items: "{{ mariadb_packages }}"
 #  with_items:
 #      - MariaDB-Galera-server
