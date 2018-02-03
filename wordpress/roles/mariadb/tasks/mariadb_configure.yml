@@ -33,7 +33,7 @@
 
 ## MariaDBのrootパスワード設定
   - name: configure / Change root password
-    command: mysqladmin -u root password "{{ mariadb_root_password }}"
+    command: mysqladmin -u root password "{{ mariadb_root_pass }}"
     args:
       creates: "/var/lib/mysql/.changed_root_pass.lck"
     register: changed_root_pass
