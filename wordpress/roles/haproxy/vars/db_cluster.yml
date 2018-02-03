@@ -1,5 +1,5 @@
 ---
-haproxy_frontend_address: "{{ hostvars.mariadb_vip.db.ansible_host }}"
+haproxy_frontend_address: "{{ hostvars.mariadb_vip.ansible_host }}"
 haproxy_frontend_port: 3306
 haproxy_frontend_option:
   - "maxconn    1000"
