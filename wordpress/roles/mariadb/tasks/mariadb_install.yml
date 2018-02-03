@@ -1,10 +1,11 @@
 ---
 ## Mariadbのレポジトリ登録
-- name: install / repository key
+- name: install / Import repository key
   yum_repository:
     name: mariadb
     description: Galera Cluster Repo
-    baseurl: http://yum.mariadb.org/{{ mariadb_release }}/centos7-amd64/
+#    baseurl: http://yum.mariadb.org/{{ mariadb_release }}/centos7-amd64/
+    baseurl: http://yum.mariadb.org/10.0/centos7-amd64/
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: yes
     file: MariaDB
@@ -15,7 +16,7 @@
     name: "{{ item }}"
     state: present
 #    enablerepo: epel
-    enablerepo: MariaDB
+    enablerepo: mariadb
   with_items: "{{ mariadb_packages }}"
 #  with_items:
 #      - MariaDB-Galera-server
