@@ -17,7 +17,7 @@ mariadb_firewalld_port:
 
 mariadb_packages:
   - MariaDB-Galera-server
-  - MariaDB-Client
+  - MariaDB-client
   - galera
   - rsync
   - MySQL-python
