@@ -18,7 +18,7 @@
 
 - block:
 ##### blockの開始 #####
-  - name: configure / Bootstrap first MariaDB Galera Cluster node. Ignore the error.
+  - name: configure / Bootstrap first MariaDB Galera Cluster node. Ignore the Warning.
     command: service mysql bootstrap
     args:
       creates: "/var/lib/mysql/{{ ansible_host }}.pid"
@@ -64,7 +64,6 @@
   systemd:
     name: mysql
     state: started
-    enable: yes
 
 ## クラスタノードの起動確認
 - name: configure / Wait for starting MariaDB Galera Cluster node
