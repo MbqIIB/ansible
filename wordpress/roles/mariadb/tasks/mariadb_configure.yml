@@ -64,6 +64,7 @@
   systemd:
     name: mysql
     state: started
+    enabled: yes
 
 ## クラスタノードの起動確認
 - name: configure / Wait for starting MariaDB Galera Cluster node
