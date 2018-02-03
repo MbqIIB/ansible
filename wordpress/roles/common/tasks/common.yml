@@ -2,7 +2,6 @@
 ## Selinuxの停止と自動起動オフ
 - name: configure / Selinux off and disable
   selinux:
-    policy: targeted
     state: disabled
   when : ansible_selinux.configu_mode == 'enforcing'
 
