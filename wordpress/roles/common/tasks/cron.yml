@@ -2,8 +2,8 @@
 - name: configure / cron shutdown at AM 2:00
   cron:
     name: "daily shutdown"
-    minute: "3"
-    hour: "23"
+    minute: "10"
+    hour: "14"
     job: "shutdown -h now"
     user: root
 ...
