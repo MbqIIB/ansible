@@ -57,7 +57,7 @@
       priv: "*.*:RELOAD,LOCK TABLES,REPLICATION CLIENT"
       append_privs: yes
 
-    run_once: true
+  run_once: true
 ##### block終了 #####
 
 ## クラスタノードの起動
