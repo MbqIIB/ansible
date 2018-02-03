@@ -1,5 +1,5 @@
 ---
-haproxy_frontend_address: "{{ databases_vip.db.ansible_host }}"
+haproxy_frontend_address: "{{ mariadb_vip.db.ansible_host }}"
 haproxy_frontend_port: 3306
 haproxy_frontend_option:
   - "maxconn    1000"
