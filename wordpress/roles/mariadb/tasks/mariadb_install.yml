@@ -17,11 +17,11 @@
     state: present
 #    enablerepo: epel
     enablerepo: mariadb
-#  with_items: "{{ mariadb_packages }}"
-  with_items:
-      - MariaDB-Galera-server
-      - Mariadb-Client
-      - galera
-      - rsync
-      - MySQL-python
+  with_items: "{{ mariadb_packages }}"
+#  with_items:
+#      - MariaDB-Galera-server
+#      - MariaDB-Client
+#      - galera
+#      - rsync
+#      - MySQL-python
 ...
