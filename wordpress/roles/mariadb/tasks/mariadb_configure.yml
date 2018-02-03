@@ -1,5 +1,5 @@
 ---
-##MariaDBコンフィグファイルの配置
+## MariaDBコンフィグファイルの配置
 - name: configure mariadb
   template:
     src: server.cnf.j2
@@ -10,7 +10,7 @@
     backup: yes
 #    notify: restart mariadb
 
-##MariaDBの全停止
+## MariaDBの全停止
 - name: configure / Stop all MariaDB for initialization
   systemd:
     name: mysql
