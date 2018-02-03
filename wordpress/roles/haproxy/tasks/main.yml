@@ -1,2 +1,5 @@
 ---
-
+- import_tasks: tasks/haproxy_check_install.yml
+- import_tasks: tasks/haproxy_install.yml
+- import_tasks: tasks/haproxy_configure_install.yml
+...
