@@ -8,6 +8,6 @@
     regexp='^ZONE=.*'
     line='ZONE="Asia/Tokyo"'
 
-- name: configure
+- name: configure localtime
   command: ls -sf /usr/share/zoneinfo/Japan /etc/localtime
   become: true
