@@ -20,7 +20,7 @@
 #  with_items: "{{ mariadb_packages }}"
   with_items:
       - MariaDB-Galera-server
-      - MariaDB-Client
+      - MariaDB-client
       - galera
       - rsync
       - MySQL-python
