@@ -72,5 +72,5 @@
     host: "{{ ansible_eth0.ipv4.address }}"
     port: 3306
     delay: 5
-    timeout: 30
+    timeout: 60
 ...
