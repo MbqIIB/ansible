@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+  - name: Facts | ansible_hostname
+    debug: var=ansible_hostname
+...

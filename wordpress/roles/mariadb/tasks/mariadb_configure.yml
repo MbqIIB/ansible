@@ -1,6 +1,6 @@
 ---
 ## MariaDBコンフィグファイルの配置
-- name: configure / mariadb
+- name: configure / Setup configure file (server.cnf)
   template:
     src: server.cnf.j2
     dest: /etc/my.cnf.d/server.cnf
