@@ -1,5 +1,5 @@
 ---
-##Mariadbのレポジトリ登録
+## Mariadbのレポジトリ登録
 - name: install / repository key
   yum_repository:
     name: mariadb
@@ -9,12 +9,13 @@
     gpgcheck: yes
     file: MariaDB
 
-##MariaDBのインストール
+## MariaDBのインストール
 - name: install / MariaDB
   yum:
     name: "{{ item }}"
     state: present
-    enablerepo: mariadb
+    enablerepo: epel
+#    enablerepo: mariadb
   with_items: "{{ mariadb_packages }}"
 #  with_items:
 #      - MariaDB-Galera-server
