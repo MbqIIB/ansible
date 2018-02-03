@@ -5,6 +5,7 @@ haproxy_frontend_option:
   - "maxconn    1000"
 haproxy_backend_port: 3306
 haproxy_backend_app: "{{ cluster_service }}"
+haproxy_backend_groups: databases
 haproxy_backend_option:
   - "balance    source"
 haproxy_firewalld_port:
