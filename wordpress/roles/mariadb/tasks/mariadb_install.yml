@@ -5,7 +5,7 @@
     name: mariadb
     description: Galera Cluster Repo
     baseurl: http://yum.mariadb.org/{{ mariadb_release }}/centos7-amd64/
-    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-Mariadb
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: yes
     file: MariaDB
 
