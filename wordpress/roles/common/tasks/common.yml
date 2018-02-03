@@ -2,8 +2,9 @@
 ## Selinuxの停止と自動起動オフ
 - name: configure / Selinux off and disable
   selinux:
+#    policy: targeted
     state: disabled
-#  when : ansible_selinux.config_mode == 'enforcing'
+#  when : ansible_selinux.configu_mode == 'enforcing'
 
 ## ipv6インターフェイスの無効化
 - name: configure / Disable ipv6 interface
@@ -25,9 +26,9 @@
     update_cache: yes
 
 ## EPELリポジトリの追加
-- name: configure / import EPEL Repository
-  yum:
-    name: epel-release
-    state: latest
-    update_cache: yes
+#- name: configure / import EPEL Repository
+#  yum:
+#    name: epel-release
+#    state: latest
+#    update_cache: yes
 ...
