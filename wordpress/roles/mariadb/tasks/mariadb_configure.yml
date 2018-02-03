@@ -1,3 +1,75 @@
 ---
+##MariaDBコンフィグファイルの配置
+- name: configure mariadb
+  template:
+    src: server.cnf.j2
+    dest: /etc/my.cnf.d/server.cnf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+#    notify: restart mariadb
 
+##MariaDBの全停止
+- name: configure / Stop all MariaDB for initialization
+  systemd:
+    name: mysql
+    state: stop
+
+- block:
+##### blockの開始 #####
+  - name: configure / Bootstrap first MariaDB Galera Cluster node. Ignore the error.
+    command: service mysql bootstrap
+    args:
+      creates: "/var/lib/mysql/{{ ansible_host }}.pid"
+
+## マスタノードの起動確認
+  - name: configure / Wait for bootstrapping first MariaDB
+    wait_for:
+    host: "{{ ansible_eth0.ipv4.address }}"
+    port: 3306
+    delay: 5
+    timeout: 60
+
+## MariaDBのrootパスワード設定
+  - name: configure / Change root password
+    command: mysqladmin -u root password "{{ mariadb_root_password }}"
+    args:
+      creates: "/var/lib/mysql/.changed_root_pass.lck"
+    register: changed_root_pass
+
+## rootパスワード用ロックファイルの配備
+  - name: configure / Setup flag file
+    file:
+      path: /var/lib/mysql/.changed_root_pass.lck
+      state: touch
+      mode: 0400
+    when: changed_root_pass.changed
+
+## SSTユーザの追加
+  - name: configure / Add Galera SST user
+    mysql_user:
+      login_password: "{{ mariadb_root_pass }}"
+      name: "{{ mariadb_sst_user }}"
+      password: "{{ mariadb_sst_pass }}"
+      host: "{{ ansible_eth0.ipv4.network }}/{{ ansible_eth0.ipv4.netmast }}"
+      priv: "*.*:RELOAD,LOCK TABLES,REPLICATION CLIENT"
+      append_privs: yes
+
+    run_once: true
+##### block終了 #####
+
+## クラスタノードの起動
+- name: configure / Start MariaDB Galera Cluster node
+  systemd:
+    name: mysql
+    state: started
+
+## クラスタノードの起動確認
+- name: configure / Wait for starting MariaDB Galera Cluster node
+  wait_for:
+    host: "{{ ansible_eth0.ipv4.address }}"
+    port: 3306
+    delay: 5
+    timeout: 60
 ...

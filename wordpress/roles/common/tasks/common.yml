@@ -1,13 +1,13 @@
 ---
 ## Selinuxの停止と自動起動オフ
-- name: configure Selinux off and disable
+- name: configure / Selinux off and disable
   selinux:
     policy: targeted
     state: disabled
   when : ansible_selinux.configu_mode == 'enforcing'
 
 ## ipv6インターフェイスの無効化
-- name: configure Disable ipv6 interface
+- name: configure / Disable ipv6 interface
   sysctl:
     state: present
     name: "{{ item }}"
@@ -19,14 +19,14 @@
     - net.ipv6.conf.defalut.disable_ipv6
 
 ## yum updateの実施
-- name: configure update yum packages
+- name: configure / update yum packages
   yum:
     name: '*'
     state: latest
     update_cache: yes
 
 ## EPELリポジトリの追加
-- name: configure import EPEL Repository
+- name: configure / import EPEL Repository
   yum:
     name: epel-release
     state: latest

@@ -1,6 +1,6 @@
 ---
 ##Mariadbのレポジトリ登録
-- name: install repository key
+- name: install / repository key
   yum_repository:
     name: mariadb
     description: Galera Cluster Repo
@@ -10,7 +10,7 @@
     file: MariaDB
 
 ##MariaDBのインストール
-- name: install MariaDB
+- name: install / MariaDB
   yum:
     name: "{{ item }}"
     state: present
