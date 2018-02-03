@@ -3,7 +3,7 @@
 - name: configure / Selinux off and disable
   selinux:
     state: disabled
-  when : ansible_selinux.configu_mode == 'enforcing'
+  when : ansible_selinux.config_mode == 'enforcing'
 
 ## ipv6インターフェイスの無効化
 - name: configure / Disable ipv6 interface
