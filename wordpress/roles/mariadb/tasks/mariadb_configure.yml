@@ -14,7 +14,7 @@
 - name: configure / Stop all MariaDB for initialization
   systemd:
     name: mysql
-    state: stop
+    state: stopped
 
 - block:
 ##### blockの開始 #####
@@ -64,6 +64,7 @@
   systemd:
     name: mysql
     state: started
+    enable: yes
 
 ## クラスタノードの起動確認
 - name: configure / Wait for starting MariaDB Galera Cluster node
