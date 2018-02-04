@@ -11,7 +11,7 @@ vrrp_script chk_haproxy {
 vrrp_instance VI_{{ loop.index }} {
   interface {{ vintf.device }}
   state BACKUP
-  virtual_router_id {{ keepalived_offset + loop.index}}
+  virtual_router_id {{ keepalived_offset + loop.index }}
 {% if inventory_hostname == keepalived_target[O] %}
   priority 100
 {% else %}
