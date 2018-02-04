@@ -12,8 +12,9 @@ global
     stats     bind-process 1
     nbproc    {{ ansible_processor_cores }}
 
-defalts
+defaults
     mode                    tcp
+#    log                     /tmp/log
     log                     127.0.0.1 local2
     option                  tcplog
     option                  tcpka
@@ -37,7 +38,7 @@ listen stats :{{ haproxy_stats_port }}
 #--------------------------------------------
 # main frontend which proxys to the backends
 #--------------------------------------------
-frontend main {{ haproxy_frontend_address }}:{{ haproxy_frontend_port }}
+frontend  main {{ haproxy_frontend_address }}:{{ haproxy_frontend_port }}
     default_backend    {{ haproxy_backend_app }}
 {% for option in haproxy_frontend_option %}
     {{ option }}
