@@ -28,7 +28,7 @@ vrrp_instance VI_{{ loop.index }} {
     chk_haproxy
   }
 }
-{% end for %}
+{% endfor %}
 
 vrrp_sync_group VG_SYNC_GROUP {
   grop {
