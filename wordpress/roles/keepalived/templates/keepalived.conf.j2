@@ -12,7 +12,7 @@ vrrp_instance VI_{{ loop.index }} {
   interface {{ vintf.device }}
   state BACKUP
   virtual_router_id {{ keepalived_offset + loop.index }}
-{% if inventory_hostname == keepalived_target[O] %}
+{% if inventory_hostname == keepalived_target[0] %}
   priority 100
 {% else %}
   priority 50
