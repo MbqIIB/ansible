@@ -1,0 +1,47 @@
+---
+### keepalivedのdefaults設定
+- name: configure / Configure service defaults
+  copy:
+    src: default_keepalived
+    dest: /etc/default/keepalived
+    owner: root
+    group: root
+    mode: 0644
+
+## keepalived設定の配備
+- name: configure / Setup configuration file
+  template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+
+## Rsyslog設定の配備
+- name: configure / Setup configuration file for rsyslog
+  template:
+    src: rsyslog_service.conf.j2
+    dest: /etc/rsyslog.d/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+
+## keepalivedの起動
+- name: configure / Start keepalived service
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - keepalived
+    - rsyslog
+
+## keepalivedの起動確認
+- name: configure / Wait for keepalived reload
+  local_action:
+    module: wait_for
+    host: "{{ item.address }}"
+    delay: 5
+    timeout: 60
+  with_items: "{{ keepalived_vip_interfaces }}"
+  run_onece: True
+...
