@@ -14,7 +14,7 @@ vrrp_instance VI_{{ loop.index }} {
   virtual_router_id {{ keepalived_offset + loop.index }}
 {% if inventory_hostname == keepalived_target[O] %}
   priority 100
-{% elese %}
+{% else %}
   priority 50
 {% endif %}
   nopreemt
@@ -34,6 +34,6 @@ vrrp_sync_group VG_SYNC_GROUP {
   grop {
 {% for vintf in keepalived_vip_interfaces %}
     VI_{{ loop.index }}
-{% endfor %}      
+{% endfor %}
   }
 }
