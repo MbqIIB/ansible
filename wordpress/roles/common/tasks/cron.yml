@@ -3,7 +3,7 @@
   cron:
     name: "daily shutdown"
     minute: "0"
-    hour: "17"
+    hour: "2"
     job: "/sbin/shutdown -h now"
     user: root
 ...

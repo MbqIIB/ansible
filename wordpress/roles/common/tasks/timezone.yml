@@ -9,5 +9,5 @@
     line='ZONE="Asia/Tokyo"'
 
 - name: configure localtime
-  command: ls -sf /usr/share/zoneinfo/Japan /etc/localtime
+  command: ln -sf /usr/share/zoneinfo/Japan /etc/localtime
   become: true
