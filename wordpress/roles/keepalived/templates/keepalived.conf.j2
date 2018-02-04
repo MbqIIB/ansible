@@ -17,7 +17,7 @@ vrrp_instance VI_{{ loop.index }} {
 {% else %}
   priority 50
 {% endif %}
-  nopreemt
+  nopreempt
   advert_int 2
   garp_master_refresh 2
 
