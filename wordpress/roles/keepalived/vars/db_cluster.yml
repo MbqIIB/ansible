@@ -1,6 +1,6 @@
 ---
 keepalived_vip_interfaces:
-  - { address: "{{ hostvars.databases_vip }}", device: '(eth0')' }
+  - { address: "{{ hostvars.databases_vip.ansible_host }}", device: '(eth0')' }
 
 keepalived_target: "{{ groups['databases'] }}"
 keepalived_offset: 20
