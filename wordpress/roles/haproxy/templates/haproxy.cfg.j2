@@ -32,7 +32,7 @@ listen stats :{{ haproxy_stats_port }}
     mode http
     stats enable
     stats uri /
-    stats realm HAProxy¥ Statistics
+    stats realm HAProxy\ Statistics
     stats auth {{ haproxy_user }}:{{ haproxy_pass }}
 
 #--------------------------------------------
