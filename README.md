@@ -5,7 +5,7 @@
 ## 概要
 Wordpress deploy by ansible.
 
-<details><summary>AnsibleでWordpressを冗長構成でデプロイするためのプレイブックです。</summary>ロードバランサはHAproxy + KeepaAived、WebサーバはNginx + Php-fpm、DBはMariaDBです。</summary></detail>
+<details><summary>AnsibleでWordpressを冗長構成でデプロイするためのプレイブックです。</summary>ロードバランサはHAproxy + KeepaAived、WebサーバはNginx + Php-fpm、DBはMariaDBです。</summary></details>
 
 
 ## システム構成
