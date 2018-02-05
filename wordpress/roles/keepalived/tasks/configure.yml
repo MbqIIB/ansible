@@ -43,5 +43,5 @@
     delay: 5
     timeout: 60
   with_items: "{{ keepalived_vip_interfaces }}"
-  run_onece: True
+  run_once: True
 ...
