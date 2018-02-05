@@ -1,6 +1,6 @@
 
 vrrp_script chk_haproxy {
-  script "killall" -0 haproxy"
+  script "/usr/bin/killall" -0 haproxy"
   interval 2
   timeout 3
   raise   2
@@ -31,7 +31,7 @@ vrrp_instance VI_{{ loop.index }} {
 {% endfor %}
 
 vrrp_sync_group VG_SYNC_GROUP {
-  grop {
+  group {
 {% for vintf in keepalived_vip_interfaces %}
     VI_{{ loop.index }}
 {% endfor %}
