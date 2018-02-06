@@ -2,9 +2,9 @@
 vrrp_script chk_haproxy {
   script "/usr/bin/killall" -0 haproxy"
   interval 2
-  timeout 3
-  raise   2
-  fall    4
+  timeout  3
+  raise    2
+  fall     4
 }
 
 {% for vintf in keepalived_vip_interfaces %}
