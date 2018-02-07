@@ -1,6 +1,6 @@
 
 vrrp_script chk_haproxy {
-  script /usr/bin/killall -0 haproxy"
+  script "/usr/bin/killall -0 haproxy"
   interval 2
   timeout  3
   raise    2
