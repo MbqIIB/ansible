@@ -29,6 +29,6 @@
   wait_for:
     host: "{{ ansible_eth0.ipv4.address }}"
     port: "{{ nginx_service_port }}"
-    dalay: 3
+    delay: 3
     timeout: 60
 ...
