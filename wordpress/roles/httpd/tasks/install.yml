@@ -1,0 +1,8 @@
+---
+## httpdのインストール
+
+- name: install / Install httpd
+  yum:
+    name: httpd
+    state: present
+...
