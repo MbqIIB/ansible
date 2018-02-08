@@ -4,5 +4,5 @@
    yum:
      name: "{{ item }}"
      state: present
-     enablerepo: remi-php56
+#     enablerepo: remi-php56
    with_items: "{{ php_packages }}"
