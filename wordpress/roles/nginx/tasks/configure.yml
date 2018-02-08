@@ -21,7 +21,7 @@
 - name: configure / Start Nginx service
   systemd:
     name: nginx
-    state: reloded
+    state: reloaded
     enabled: yes
 
 ## Nginxの起動確認
