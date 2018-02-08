@@ -1,0 +1,34 @@
+---
+## Nginx設定の配備
+- name: configure / Setup global configuration file
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 644
+
+## バーチャルホスト設定の配備
+- name: configure / Setup configuration
+  template:
+    src: wordpress.conf.j2
+    dest: /etc/nginx/conf.d/wordpress.conf
+    owner: root
+    group: root
+    mode: 644
+
+## Ngingxの起動
+- name: configure / Start Nginx service
+  systemd:
+    name: nginx
+    state: reloded
+    enabled: yes
+
+## Nginxの起動確認
+- name: configure / Wait for nginx restart
+  wait_for:
+    host: "{{ ansible_eth0.ipv4.address }}"
+    port: "{{ nginx_service_port }}"
+    dalay: 3
+    timeout: 60
+...
