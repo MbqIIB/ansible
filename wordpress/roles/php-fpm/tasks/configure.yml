@@ -28,7 +28,7 @@
 - name: configure / Start php-fpm service
   systemd:
     name: 'php-fpm'
-    state: restart
+    state: restarted
     enabled: yes
 
 ## PHP-FPMの起動確認
