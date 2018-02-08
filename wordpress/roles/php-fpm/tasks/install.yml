@@ -1,6 +1,4 @@
 ---
-## install / for Amazon linux2
-
 ## PHP-FPMのインストール
  - name: install /Install required packages
   yum:
