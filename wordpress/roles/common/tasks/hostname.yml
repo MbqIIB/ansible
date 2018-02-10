@@ -10,6 +10,6 @@
     regexp: '^ip-.*'
     insertafter: ' {{ input_hostname }} '
     state: present
-#    line: '^ip-.*'
+    line: '^ip-.*'
     backup: yes
 ...
