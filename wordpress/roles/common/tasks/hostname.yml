@@ -1,10 +1,12 @@
 ---
-- name: configure / hostname setting
-  expect:
+- name: configure / input hostname
+  pause:
+    prompt: Please input hostname
+  register: input_hostname
+
+- name: configure / hostname settings
     replace: dest=/etc/hostname
       regexp='^ip-.*'
-      replace="{{ hostname }}"
+      replace="{{ input_hostname }}"
       backup=yes
-    responses:
-      'Please input hostname': "{{ hostname }}"
 ...
