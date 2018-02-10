@@ -1,5 +1,5 @@
 ---
-haproxy_frontend_address: "{{ hostvars.wp_vip.ansible_host }}"
+haproxy_frontend_address: "{{ hostvars.wp_vip_01.ansible_host }}"
 haproxy_frontend_port: 80
 haproxy_frontend_option:
   - "maxconn    1000"
@@ -8,7 +8,7 @@ haproxy_backend_app: "{{ cluster_service }}"
 haproxy_backend_groups: apps
 haproxy_backend_option:
   - "balance    source"
-  - "http-request set-header Host {{ hostvars.wp_vip.ansible_host }}"
+  - "http-request set-header Host {{ hostvars.wp_vip_01.ansible_host }}"
 
 haproxy_firewalld_port:
   - "{{ haproxy_stats_port }}/tcp"
