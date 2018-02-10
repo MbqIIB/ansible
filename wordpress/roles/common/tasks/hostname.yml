@@ -6,7 +6,8 @@
 
 - name: configure / hostname settings
   lineinfile:
-    path: /etc/hostname
+    path: /home/ec2-user/hostname
+#    path: /etc/hostname
     regexp: '^ip-.*'
     line: '{{ input_hostname }}'
 #    state: present
