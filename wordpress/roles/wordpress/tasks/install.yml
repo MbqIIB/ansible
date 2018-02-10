@@ -21,7 +21,7 @@
     path: /home/ec2-user/wordpress-{{ wordpress_version }}
     owner: apache
     group: apache
-    mode: 755
+    mode: 0755
     recurse: yes
 
 ## ドキュメントルートの所有権設定

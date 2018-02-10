@@ -35,7 +35,7 @@
 - name: configure / Deploy WordPress config file
   template:
     src: wp-config.php.j2
-    dest: /home/ec2-user/wordpress-{{ wordpress_version }}
+    dest: /home/ec2-user/wordpress-{{ wordpress_version }}/wp-config.php
     owner: apache
     group: apache
     mode: 0644
