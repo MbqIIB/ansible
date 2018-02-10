@@ -1,0 +1,25 @@
+---
+## Wordpressのデプロイ
+- name: install / Download Wordpress
+  git:
+    repo: https://github.com/WordPress/WordPress
+    dest: "/tmp/wordpress-{{ wordpress_version }}"
+    version: "{{ wordpress_version }}"-branch
+
+## ドキュメントルートの作成
+- name: install / Link wordpress root document
+  file:
+    src: /tmp/wordpress-{{ wordpress_version }}
+    path: /var/www/html/wordpress
+    owner: apache
+    group: apache
+    state: link
+
+## ドキュメントルートの所有権設定
+- name: install / Change ownership in WordPress
+  file:
+    path: /tmp/wordpress-{{ wordpress_version }}
+    owner: apache
+    group: apache
+    recurse: yes
+...
