@@ -11,8 +11,15 @@
 - block:
 ##### blockの開始 #####
 ## WordPressのDB作成
-  - name: configure / Create WordPress
+  - name: configure / Create WordPress database
     mysql_db:
+      login_password: "{{ mariadb_root_pass }}"
+      name: "{{ wordpress_db_user }}"
+      state: present
+
+## WordPress DBユーザの作成
+  - name: configure / Create WordPress database user
+    mysql_user:
       login_password: "{{ mariadb_root_pass }}"
       name: "{{ wordpress_db_user }}"
       password: "{{ wordpress_db_password }}"
