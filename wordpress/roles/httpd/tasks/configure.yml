@@ -23,6 +23,7 @@
   systemd:
     name: httpd
     state: restarted
+    daemon_reload: yes
     enabled: yes
 
 ## httpdの起動確認
