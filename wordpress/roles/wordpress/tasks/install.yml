@@ -4,7 +4,7 @@
   git:
     repo: https://github.com/WordPress/WordPress
     dest: "/tmp/wordpress-{{ wordpress_version }}"
-    version: "{{ wordpress_version }}"-branch
+    version: "{{ wordpress_version }}-branch"
 
 ## ドキュメントルートの作成
 - name: install / Link wordpress root document
