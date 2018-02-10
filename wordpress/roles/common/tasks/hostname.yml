@@ -11,9 +11,4 @@
     insertafter: ' {{ input_hostname }} '
     line: '^ip-.*'
     backup: yes
-
-    replace: dest=/etc/hostname
-      regexp='^ip-.*'
-      replace="{{ input_hostname }}"
-      backup=yes
 ...
