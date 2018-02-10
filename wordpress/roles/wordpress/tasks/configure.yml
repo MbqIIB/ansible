@@ -13,7 +13,7 @@
 ## WordPressのDB作成
   - name: configure / Create WordPress
     mysql_db:
-      login_password: {{ mariadb_root_pass }}
+      login_password: "{{ mariadb_root_pass }}"
       name: "{{ wordpress_db_user }}"
       password: "{{ wordpress_db_password }}"
       host: "{{ ansible_eth0.ipv4.network }}/{{ ansible_eth0.ipv4.netmask }}"
@@ -39,4 +39,4 @@
   systemd:
     name: httpd
     state: reloaded
-...    
+...
