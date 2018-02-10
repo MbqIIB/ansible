@@ -5,8 +5,14 @@
   uri:
     url: https://api.wordpress.org/secret-key/1.1/salt/
     return_content: yes
-    register: "wordpress_salt"
-    run_once: true
+  register: "wordpress_salt"
+  run_once: true
+
+- uri:
+    url: http://www.example.com
+    return_content: yes
+    register: webpage
+
 
 - block:
 ##### blockの開始 #####
