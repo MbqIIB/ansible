@@ -3,16 +3,17 @@
 - name: configure / Setup global configuration file
   copy:
     src: httpd.conf
-    dest: /etc/httpd/conf/nginx.conf
+    dest: /etc/httpd/conf/httpd.conf
     owner: root
     group: root
     mode: 644
+    backup: yes
 
 ## httpd設定の配備
 #- name: configure / Setup configuration
 #  template:
-#    src: wordpress.conf.j2
-#    dest: /etc/nginx/conf.d/wordpress.conf
+#    src: httpd.conf.j2
+#    dest: /etc/httpd/conf/httpd.conf
 #    owner: root
 #    group: root
 #    mode: 644
@@ -21,10 +22,10 @@
 - name: configure / Start httpd service
   systemd:
     name: httpd
-    state: reloaded
+    state: restarted
     enabled: yes
 
-## Nginxの起動確認
+## httpdの起動確認
 - name: configure / Wait for httpd restart
   wait_for:
     host: "{{ ansible_eth0.ipv4.address }}"
