@@ -5,7 +5,7 @@ haproxy_frontend_option:
   - "maxconn    1000"
 haproxy_backend_port: 8080
 haproxy_backend_app: "{{ cluster_service }}"
-haproxy_backend_groups: wp
+haproxy_backend_groups: apps
 haproxy_backend_option:
   - "balance    source"
   - "http-request set-header Host {{ hostvars.wp_vip.ansible_host }}"

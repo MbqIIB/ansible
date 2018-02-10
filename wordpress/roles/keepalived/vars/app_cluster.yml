@@ -2,6 +2,6 @@
 keepalived_vip_interfaces:
   - { address: "{{ hostvars.wp_vip.ansible_host }}", device: 'eth0' }
 
-keepalived_target: "{{ groups['wp'] }}"
+keepalived_target: "{{ groups['apps'] }}"
 keepalived_offset: 50
 ...
