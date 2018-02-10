@@ -9,6 +9,6 @@
     path: /etc/hostname
     regexp: '^ip-.*'
     insertafter: ' {{ input_hostname }} '
-    line: '^ip-.*'
+#    line: '^ip-.*'
     backup: yes
 ...
