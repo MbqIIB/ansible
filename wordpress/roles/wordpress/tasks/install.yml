@@ -15,6 +15,15 @@
     group: apache
     state: link
 
+## パーミッションの変更
+- name: install / Permission change
+  file:
+    path: /tmp/wordpress-{{ wordpress_version }}
+    owner: apache
+    group: apache
+    mode: 755
+    state: present
+
 ## ドキュメントルートの所有権設定
 - name: install / Change ownership in WordPress
   file:

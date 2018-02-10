@@ -8,12 +8,6 @@
   register: "wordpress_salt"
   run_once: true
 
-- uri:
-    url: http://www.example.com
-    return_content: yes
-    register: webpage
-
-
 - block:
 ##### blockの開始 #####
 ## WordPressのDB作成
@@ -41,7 +35,7 @@
 - name: configure / Deploy WordPress config file
   template:
     src: wp-config.php.j2
-    dest: /var/www/html/wp-config.php
+    dest: /tmp/wordpress-{{ wordpress_version }}/wp-config.php
     owner: apache
     group: apache
     mode: 0644
