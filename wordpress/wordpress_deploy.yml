@@ -11,7 +11,7 @@
     - { role: keepalived, cluster_service: db_cluster, tags: keepalived }
 
 - name: Deploy Application for wordpress
-  hosts: wp
+  hosts: apps
   become: true
   roles:
     - { role: common, tags: common }

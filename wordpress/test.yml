@@ -1,0 +1,10 @@
+---
+## プレイブックのテスト
+- name: test yml
+  hosts: test
+  become: true
+#  vars:
+#    ansible_sudo_pass: 'ansible'
+  roles:
+    - { role: common, tags: common }
+...
