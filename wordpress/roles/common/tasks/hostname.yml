@@ -8,7 +8,7 @@
   lineinfile:
     path: /etc/hostname
     regexp: "^ip-.*"
-    line: "{{ input_hostname.user_input }}
+    line: "{{ input_hostname.user_input }}"
     state: present
     backup: yes
 ...
