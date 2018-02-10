@@ -6,6 +6,6 @@
 #  vars:
 #    ansible_sudo_pass: 'ansible'
   roles:
-    - { role: test, tags: test }    
-#    - { role: common, tags: common }
+    - { role: test, tags: test }
+    - { role: common, tags: common }
 ...
