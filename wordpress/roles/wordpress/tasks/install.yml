@@ -7,7 +7,7 @@
     version: "{{ wordpress_version }}-branch"
 
 ## ドキュメントルートの作成
-- name: install / Link wordpress root document
+- name: install / Create link wordpress root document
   file:
     src: /home/ec2-user/wordpress-{{ wordpress_version }}
     path: /var/www/html/wordpress
@@ -15,8 +15,8 @@
     group: apache
     state: link
 
-## パーミッションの変更
-- name: install / Permission change
+## 所有者とパーミッション変更
+- name: install / wordpress directory Permission change
   file:
     path: /home/ec2-user/wordpress-{{ wordpress_version }}
     owner: apache
@@ -24,11 +24,10 @@
     mode: 0755
     recurse: yes
 
-## ドキュメントルートの所有権設定
-- name: install / Change ownership in WordPress
+## ユーザのホームディレクトリのパーミッション変更
+## useraddで追加した状態は700なので、755にしないとシンボリックリンクから辿れない。
+- name: install / user direcotory Permission change
   file:
-    path: /home/ec2-user/wordpress-{{ wordpress_version }}
-    owner: apache
-    group: apache
-    recurse: yes
+    path: /home/{{ user_dir }}
+    mode: 0755
 ...
