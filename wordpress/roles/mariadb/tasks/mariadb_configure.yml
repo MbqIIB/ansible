@@ -30,7 +30,7 @@
     host: "{{ ansible_eth0.ipv4.address }}"
     port: 3306
     delay: 5
-    timeout: 60
+    timeout: 30
 
 ## MariaDBのrootパスワード設定
   - name: configure / Change root password
@@ -72,5 +72,5 @@
     host: "{{ ansible_eth0.ipv4.address }}"
     port: 3306
     delay: 5
-    timeout: 60
+    timeout: 30
 ...

@@ -41,7 +41,7 @@
     module: wait_for
     host: "{{ item.address }}"
     delay: 5
-    timeout: 60
+    timeout: 30
   with_items: "{{ keepalived_vip_interfaces }}"
   run_once: True
 ...
