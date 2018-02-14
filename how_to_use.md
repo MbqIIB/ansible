@@ -1,23 +1,23 @@
 # ansibleの使い方
 
-## 動作環境
+### 動作環境
 
-### ansibleサーバ
+##### ansibleサーバ
 OS: Linux  
 Python: 2.6以上
 
-### ansibleクライアント
+##### ansibleクライアント
 Python: 2.4以上
 ※サーバと合わせておいた方が良い
 
-## ansibleのインストール
-### yumの場合
+### ansibleのインストール
+##### yumの場合
 ```
 # yum install epel-release
 # yum install ansible
 ```
 
-### epelが使えない場合
+##### epelが使えない場合
 ```
 # easy_install pip
 # pip install ansible
@@ -25,8 +25,8 @@ Python: 2.4以上
 
 ---
 
-## ansibleのディレクトリ・ファイル構成
-### よく使う構成
+### ansibleのディレクトリ・ファイル構成
+##### よく使う構成
 
 ```
 /etc  
@@ -57,7 +57,7 @@ Python: 2.4以上
     |-mysql  
 ```   
 
-### inventoryファイルの記述例
+##### inventoryファイルの記述例
 yumでインストールするとansible.cfgが生成され、デフォルトのインベントリファイルは/etc/ansible/hostsになる。
 ```
 /etc/ansible/hosts
@@ -88,7 +88,7 @@ ansible_become_pass=password #ssh接続先sudoパスワード
 
 ---
 
-### roleの構造
+##### roleの構造
 ロール名を指定してプレイブックを実行するとき、tasksやvars配下のmain.ymlのみが読み込まれる点に注意。同じ階層の他ymlを読み込み時は、main.yml内にimport_tasks:やinclude_tasks:で読み込むymlファイルを指定すること。
 
 ```
@@ -112,8 +112,8 @@ ansible_become_pass=password #ssh接続先sudoパスワード
   |-wordpress
 ```  
 
-## roleの実行方法
-### プレイブック例
+### roleの実行方法
+##### プレイブック例
 ```
 /etc/ansbile/roles/deploy.yml
 - name: deploy test
@@ -126,14 +126,14 @@ ansible_become_pass=password #ssh接続先sudoパスワード
     - { role: wordpress, tags: wordpress ß}
 ```
 
-### role実行例
+##### role実行例
 tagsで指定したroleのみを実行するときは-tで指定する。
 
 ```
 $ ansible-playbook deploy.yml -i hosts --ask-become-pass --ask-pass -t common,httpd
 ```
 
-### ホスト指定実行例
+##### ホスト指定実行例
 インベントリファイルのホストを指定するときは-l（エル）で指定する
 /etc/ansible/hosts
 [mysql]
@@ -145,14 +145,14 @@ $ ansible-playbook deploy.yml -i hosts --ask-become-pass --ask-pass -l mysql
 
 ---
 
-## 主なモジュールの使い方
+### 主なモジュールの使い方
 
-###
+#####
 ```
 
 ```
 
-###
+#####
 ```
 
 ```
