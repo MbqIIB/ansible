@@ -68,7 +68,7 @@ yumでインストールするとansible.cfgが生成され、デフォルトの
 192.168.101.[1:5]
 
 [oracle]
-hostname01 ansible_host=192.168.102.1 #ansible_hostはssh接続先IPC
+hostname01 ansible_host=192.168.102.1 #ansible_hostはssh接続先IP
 hostname02 ansible_host=192.168.102.2
 
 [mysql]
@@ -134,11 +134,15 @@ $ ansible-playbook deploy.yml -i hosts --ask-become-pass --ask-pass -t common,ht
 ```
 
 ##### ホスト指定実行例
-インベントリファイルのホストを指定するときは-l（エル）で指定する
-/etc/ansible/hosts
-[mysql]
+インベントリファイルのホストを指定するときは-l（エル）で指定する。  
+インベントリファイル
+```
+/etc/ansible/hosts  
+[mysql]  
 192.168.100.1
+```
 
+実行例
 ```
 $ ansible-playbook deploy.yml -i hosts --ask-become-pass --ask-pass -l mysql
 ```
