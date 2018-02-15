@@ -2,7 +2,7 @@
 - name: copy test01
   unarchive:
     src: /home/ec2-user/httpd.tar.gz
-    dest: /etc/
+    dest: /etc/httpd/
     owner: root
     group: root
     mode: 0755
