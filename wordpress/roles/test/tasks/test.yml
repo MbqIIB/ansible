@@ -1,8 +1,8 @@
 ---
 - name: copy test01
   file:
-    src: /etc/httpd/
-    dest: /etc/httpd
+    src: /etc/httpd
+    dest: /etc/httpd/
     owner: root
     group: root
     mode: 0644
@@ -13,8 +13,8 @@
 
 - name: copy test02
   file:
-    src: /etc/httpd/
-    dest: /etc/httpd
+    src: /etc/httpd
+    dest: /etc/httpd/
     owner: root
     group: root
     mode: 0644
