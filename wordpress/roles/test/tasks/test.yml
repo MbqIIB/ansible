@@ -1,25 +1,23 @@
 ---
 - name: copy test01
-  file:
+  copy:
     src: /etc/httpd
     dest: /etc/httpd/
     owner: root
     group: root
     mode: 0644
-    state: directory
-    recurse: yes
+    directory_mode: yes
   when:
     ansible_eth0.ipv4.address == "172.16.0.21"
 
 - name: copy test02
-  file:
+  copy:
     src: /etc/httpd
     dest: /etc/httpd/
     owner: root
     group: root
     mode: 0644
-    state: directory
-    recurse: yes
+    directory_mode: yes
   when:
     ansible_eth0.ipv4.address == "172.16.0.22"
 ...
