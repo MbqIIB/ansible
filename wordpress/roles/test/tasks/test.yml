@@ -1,8 +1,8 @@
 ---
 - name: copy test01
   copy:
-    src: /home/ec2-user/test01/conf
-    dest: /home/ec2-user/test01
+    src: /home/ec2-user/test01/conf/
+    dest: /home/ec2-user/test01/
     owner: root
     group: root
     mode: 0644
@@ -12,8 +12,8 @@
 
 - name: copy test02
   copy:
-    src: /home/ec2-user/test02/conf
-    dest: /home/ec2-user/test02
+    src: /home/ec2-user/test02/conf/
+    dest: /home/ec2-user/test02/
     owner: root
     group: root
     mode: 0644
