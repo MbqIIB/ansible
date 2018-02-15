@@ -1,7 +1,7 @@
 ---
 - name: copy test01
   copy:
-    src: /etc/httpd
+    src: /etc/httpd/
     dest: /etc/httpd/
     owner: root
     group: root
@@ -12,7 +12,7 @@
 
 - name: copy test02
   copy:
-    src: /etc/httpd
+    src: /etc/httpd/
     dest: /etc/httpd/
     owner: root
     group: root
