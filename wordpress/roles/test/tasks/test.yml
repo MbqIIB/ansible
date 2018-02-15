@@ -1,21 +1,19 @@
 ---
 - name: copy test01
-  unarchive:
-    src: /home/ec2-user/httpd.tar.gz
-    dest: /etc/httpd/
+  copy:
+    src: /home/ec2-user/template/
+    dest: /etc/
     owner: root
     group: root
-    mode: 0755
   when:
     ansible_eth0.ipv4.address == "172.16.0.21"
 
 - name: copy test02
   copy:
-    src: /home/ec2-user/httpd.tar.gz
-    dest: /etc/httpd/
+    src: /home/ec2-user/template/
+    dest: /etc/
     owner: root
     group: root
-    mode: 0755
   when:
     ansible_eth0.ipv4.address == "172.16.0.22"
 ...
