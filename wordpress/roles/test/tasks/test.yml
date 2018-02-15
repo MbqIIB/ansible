@@ -1,7 +1,7 @@
 ---
 - name: copy test01
   file:
-    src: /etc/httpd
+    src: /etc/httpd/
     dest: /home/ec2-user/
     owner: ec2-user
     group: ec2-user
@@ -13,7 +13,7 @@
 
 - name: copy test02
   file:
-    src: /etc/httpd
+    src: /etc/httpd/
     dest: /home/ec2-user/
     owner: ec2-user
     group: ec2-user
