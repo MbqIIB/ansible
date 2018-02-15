@@ -1,11 +1,23 @@
 ---
-- name: copy test
+- name: copy test01
   copy:
-    src: /home/ec2-user/test01
+    src: /home/ec2-user/test01/conf
     dest: /home/ec2-user/test01
     owner: ec2-user
     group: ec2-user
     mode: 0644
+    directory_mode: yes
   when:
-    ansible_eth0.ipv4.address == "172.16.0.21" 
+    ansible_eth0.ipv4.address == "172.16.0.21"
+
+- name: copy test02
+  copy:
+    src: /home/ec2-user/test02/conf
+    dest: /home/ec2-user/test02
+    owner: ec2-user
+    group: ec2-user
+    mode: 0644
+    directory_mode: yes
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.22"
 ...
