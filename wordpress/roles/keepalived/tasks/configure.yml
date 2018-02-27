@@ -16,8 +16,8 @@
     owner: root
     group: root
     mode: 0644
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.21"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.21"
 
 ## keepalived設定の配備 lbs02
 - name: configure / Setup configuration file
@@ -27,8 +27,8 @@
     owner: root
     group: root
     mode: 0644
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.22"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.22"
 
 ## keepalived設定の配備 mariadb01
 - name: configure / Setup configuration file
@@ -38,8 +38,8 @@
     owner: root
     group: root
     mode: 0644
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.41"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.41"
 
 ## keepalived設定の配備 mariadb02
 - name: configure / Setup configuration file
@@ -49,8 +49,8 @@
     owner: root
     group: root
     mode: 0644
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.42"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.42"
 
 ## マスター切替時のスクリプト配布 lbs01
 - name: configure / Setup switch script file
@@ -60,8 +60,8 @@
     owner: root
     group: root
     state: present
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.21"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.21"
 
 ## マスター切替時のスクリプト配布 lbs02
 - name: configure / Setup switch script file
@@ -71,8 +71,8 @@
     owner: root
     group: root
     state: present
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.22"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.22"
 
 ## マスター切替時のスクリプト配布 mariadb01
 - name: configure / Setup switch script file
@@ -82,8 +82,8 @@
     owner: root
     group: root
     state: present
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.41"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.41"
 
 ## マスター切替時のスクリプト配布 mariadb02
 - name: configure / Setup switch script file
@@ -93,8 +93,8 @@
     owner: root
     group: root
     state: present
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.42"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.42"
 
 ## Rsyslog設定の配備
 - name: configure / Setup configuration file for rsyslog
