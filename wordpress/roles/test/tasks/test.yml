@@ -7,8 +7,8 @@
     owner: root
     group: root
     mode: 0644
-    when:
-      ansible_eth0.ipv4.address == "172.16.0.21"
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.21"
 
 #- name: copy test01
 #  copy:
