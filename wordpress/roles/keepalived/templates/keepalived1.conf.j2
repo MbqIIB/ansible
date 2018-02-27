@@ -24,7 +24,7 @@ vrrp_instance VI_{{ loop.index }} {
   virtual_ipaddress {
     {{ vintf.address }} dev {{ vintf.device }}
   }
-  unicast_src_ip {{ hostvars[host].ansible_eth0.ipv4.address }}
+  unicast_src_ip {{ ansible_eth0.ipv4.address }}
    unicast_peer {
     172.16.0.42
     }
