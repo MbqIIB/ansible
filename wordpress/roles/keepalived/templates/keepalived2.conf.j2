@@ -26,9 +26,9 @@ vrrp_instance VI_{{ loop.index }} {
   }
   unicast_src_ip {{ hostvars[host].ansible_eth0.ipv4.address }}
    unicast_peer {
-    172.16.0.22
+    172.16.0.31
     }
-    notify_master "/etc/keepalived/lbs_route_table_update.sh"
+    notify_master "/etc/keepalived/mariadb_route_table_update.sh"
 
   track_script {
     chk_haproxy

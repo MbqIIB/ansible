@@ -8,7 +8,7 @@
     group: root
     mode: 0644
 
-## keepalived設定の配備
+## keepalived設定の配備 lbs01
 - name: configure / Setup configuration file
   template:
     src: keepalived.conf.j2
@@ -16,6 +16,85 @@
     owner: root
     group: root
     mode: 0644
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.21"
+
+## keepalived設定の配備 lbs02
+- name: configure / Setup configuration file
+  template:
+    src: keepalived0.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.22"
+
+## keepalived設定の配備 mariadb01
+- name: configure / Setup configuration file
+  template:
+    src: keepalived1.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.31"
+
+## keepalived設定の配備 mariadb02
+- name: configure / Setup configuration file
+  template:
+    src: keepalived2.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.32"
+
+## マスター切替時のスクリプト配布 lbs01
+- name: configure / Setup switch script file
+  file:
+    src: lbs_route_update.sh
+    dest: /etc/keepalived
+    owner: root
+    group: root
+    state: present
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.21"
+
+## マスター切替時のスクリプト配布 lbs02
+- name: configure / Setup switch script file
+  file:
+    src: lbs_route_update.sh
+    dest: /etc/keepalived
+    owner: root
+    group: root
+    state: present
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.22"
+
+## マスター切替時のスクリプト配布 mariadb01
+- name: configure / Setup switch script file
+  file:
+    src: mariadb_route_update.sh
+    dest: /etc/keepalived
+    owner: root
+    group: root
+    state: present
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.31"
+
+## マスター切替時のスクリプト配布 mariadb02
+- name: configure / Setup switch script file
+  file:
+    src: mariadb_route_update.sh
+    dest: /etc/keepalived
+    owner: root
+    group: root
+    state: present
+    when:
+      ansible_eth0.ipv4.address == "172.16.0.32"
 
 ## Rsyslog設定の配備
 - name: configure / Setup configuration file for rsyslog
