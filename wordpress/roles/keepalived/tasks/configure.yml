@@ -55,7 +55,7 @@
 ## マスター切替時のスクリプト配布 lbs01
 - name: configure / Setup switch script file
   copy:
-    src: /etc/ansible/wordpress/roles/keepalived/files/lbs_route_update.sh
+    src: /etc/ansible/wordpress/roles/keepalived/files/lbs_route_table_update.sh
     dest: /etc/keepalived
     owner: root
     group: root
@@ -66,7 +66,7 @@
 ## マスター切替時のスクリプト配布 lbs02
 - name: configure / Setup switch script file
   copy:
-    src: /etc/ansible/wordpress/roles/keepalived/files/lbs_route_update.sh
+    src: /etc/ansible/wordpress/roles/keepalived/files/lbs_route_table_update.sh
     dest: /etc/keepalived
     owner: root
     group: root
@@ -77,7 +77,7 @@
 ## マスター切替時のスクリプト配布 mariadb01
 - name: configure / Setup switch script file
   copy:
-    src: /etc/ansible/wordpress/roles/keepalived/files/mariadb_route_update.sh
+    src: /etc/ansible/wordpress/roles/keepalived/files/mariadb_route_table_update.sh
     dest: /etc/keepalived
     owner: root
     group: root
@@ -88,7 +88,7 @@
 ## マスター切替時のスクリプト配布 mariadb02
 - name: configure / Setup switch script file
   copy:
-    src: /etc/ansible/wordpress/roles/keepalived/files/mariadb_route_update.sh
+    src: /etc/ansible/wordpress/roles/keepalived/files/mariadb_route_table_update.sh
     dest: /etc/keepalived
     owner: root
     group: root
