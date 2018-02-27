@@ -39,7 +39,7 @@
     group: root
     mode: 0644
     when:
-      ansible_eth0.ipv4.address == "172.16.0.31"
+      ansible_eth0.ipv4.address == "172.16.0.41"
 
 ## keepalived設定の配備 mariadb02
 - name: configure / Setup configuration file
@@ -50,7 +50,7 @@
     group: root
     mode: 0644
     when:
-      ansible_eth0.ipv4.address == "172.16.0.32"
+      ansible_eth0.ipv4.address == "172.16.0.42"
 
 ## マスター切替時のスクリプト配布 lbs01
 - name: configure / Setup switch script file
@@ -83,7 +83,7 @@
     group: root
     state: present
     when:
-      ansible_eth0.ipv4.address == "172.16.0.31"
+      ansible_eth0.ipv4.address == "172.16.0.41"
 
 ## マスター切替時のスクリプト配布 mariadb02
 - name: configure / Setup switch script file
@@ -94,7 +94,7 @@
     group: root
     state: present
     when:
-      ansible_eth0.ipv4.address == "172.16.0.32"
+      ansible_eth0.ipv4.address == "172.16.0.42"
 
 ## Rsyslog設定の配備
 - name: configure / Setup configuration file for rsyslog
