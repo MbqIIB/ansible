@@ -54,7 +54,7 @@
 
 ## マスター切替時のスクリプト配布 lbs01
 - name: configure / Setup switch script file
-  file:
+  copy:
     src: lbs_route_update.sh
     dest: /etc/keepalived
     owner: root
@@ -65,7 +65,7 @@
 
 ## マスター切替時のスクリプト配布 lbs02
 - name: configure / Setup switch script file
-  file:
+  copy:
     src: lbs_route_update.sh
     dest: /etc/keepalived
     owner: root
@@ -76,7 +76,7 @@
 
 ## マスター切替時のスクリプト配布 mariadb01
 - name: configure / Setup switch script file
-  file:
+  copy:
     src: mariadb_route_update.sh
     dest: /etc/keepalived
     owner: root
@@ -87,7 +87,7 @@
 
 ## マスター切替時のスクリプト配布 mariadb02
 - name: configure / Setup switch script file
-  file:
+  copy:
     src: mariadb_route_update.sh
     dest: /etc/keepalived
     owner: root
