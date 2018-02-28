@@ -1,0 +1,6 @@
+---
+#- import_tasks: tasks/hostname.yml
+- import_tasks: tasks/common.yml
+- import_tasks: tasks/timezone.yml
+- import_tasks: tasks/cron.yml
+...

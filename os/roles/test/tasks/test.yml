@@ -1,0 +1,32 @@
+---
+## keepalived設定の配備 lbs01
+- name: configure / Setup configuration file
+  template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    ansible_eth0.ipv4.address == "172.16.0.21"
+
+#- name: copy test01
+#  copy:
+#    src: /home/ec2-user/template/
+#    dest: /etc/
+#    owner: root
+#    group: root
+#    directory_mode: yes
+#  when:
+#    ansible_eth0.ipv4.address == "172.16.0.21"
+
+#- name: copy test02
+#  copy:
+#    src: /home/ec2-user/template/
+#    dest: /etc/
+#    owner: root
+#    group: root
+#    directory_mode: yes
+#  when:
+#    ansible_eth0.ipv4.address == "172.16.0.22"
+...

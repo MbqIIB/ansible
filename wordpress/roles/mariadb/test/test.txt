@@ -1,3 +1,0 @@
-## Galera Clusterの起動テスト
-$ mysql -u root -p
-MariaDB> show status like 'wsrep_%';

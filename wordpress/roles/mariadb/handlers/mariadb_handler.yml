@@ -1,8 +1,0 @@
----
-- name: restart mariadb
-  systemd:
-    state: restarted
-    daemon_reload: yes
-    name: mariadb
-    listen: restart mariadb 
-...
