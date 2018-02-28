@@ -1,6 +1,6 @@
 # Wordpressの冗長化
 
-* AnsibleでWordpressをHA構成でデプロイするためのプレイブックです。インフラはAWS。ロードバランサはHAproxy + KeepaAived、WebサーバはApache、DBはMariaDBです。
+* AnsibleでWordpressをHA構成でデプロイするためのプレイブックです。インフラはAWS。ロードバランサはHAproxy + KeepaAived、WebサーバはApache、DBはMariaDBです。  
 
 
 ## システム構成
@@ -9,7 +9,7 @@
 * Web Server: Apache2.4.6-67
 * DB Server: MariaDB5.5.56-2
 * Load Balancer: HAproxy.5.18-6, KeepaAivedkeepalived-1.3.5-1
-* Wordpress4.9
+* Wordpress4.9  
 
 
 ## VPC構成
@@ -121,21 +121,37 @@ export AWS_DEFAULT_REGION=
 # ansible-playbook -i inventory/inventory.ini deploy.yml
 ```
 
+## Wordpressへのアクセス
+* VPC内のインスタンスから
+http://10.0.0.30/wordpress/wp-admin/install.php
+にアクセスしてwordpressの初期設定を行えれば完了です。
+
+* とりあえずのアクセスを確認する場合
+```
+$ curl http://10.0.0.30/wordpress/wp-admin/install.php
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+・・・略
+</script>
+</body>
+</html>
+```
+
 
 ## ハマりやすいポイント
 
 #### playbookの実行に失敗した場合
 * 実行内容の詳細を確認する
+* 文法チェックは --syntax-check、ドライランは--checkで実行可能です。
 ```
 # ansible-playbook -i inventory/inventory.ini deploy.yml -vvvvv
 ```
-* 文法チェックは --syntax-check、ドライランは--checkで実行可能です。
 
 #### keepalivedとhaproxyの起動順
 * 先にkeepalivedを起動する必要があります。
 
 #### keepalivedのVIP
 * 常にマスターサーバのみがVIPを保持します。全てのサーバがVIPを保持している状態（スプリットブレイン）は異常な状態です。  
+* VPCではブロードキャストが使えないため、keepalivedのコンフィグでユニキャストが出来るようにしています。
 
 #### keepalivedの切り替え
 * マスターサーバがダウンすると、スレーブサーバ側で/etc/keepalived/lbs_route_table_update.shが実行され、VPCのルートテーブルが更新され、VIPへのルーティングが修正されます。  
@@ -159,8 +175,3 @@ safe_to_bootstrap: 1
 ```
 # service mysql start
 ```
-
-
-## 作者
-Hatano Yoshihiko  
-* [twitter](https://twitter.com/hatanoyoshihiko)
