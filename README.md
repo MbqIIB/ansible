@@ -1,10 +1,6 @@
 # Wordpressの冗長化
 
-
-## 概要
-Wordpress deploy by ansible.
-
-<details><summary>AnsibleでWordpressを冗長構成でデプロイするためのプレイブックです。</summary>ロードバランサはHAproxy + KeepaAived、WebサーバはApache、DBはMariaDBです。</summary></details>
+* AnsibleでWordpressをHA構成でデプロイするためのプレイブックです。インフラはAWS。ロードバランサはHAproxy + KeepaAived、WebサーバはApache、DBはMariaDBです。
 
 
 ## システム構成
@@ -57,7 +53,6 @@ ansibleサーバをパブリック（インターネット）に配置し、同�
 | 172.16.0.0/16 | local           |
 | 0.0.0.0/0     | igw-xxx         |
 
----
 
 ## Playbookの実行手順
 
@@ -126,6 +121,7 @@ export AWS_DEFAULT_REGION=
 # ansible-playbook -i inventory/inventory.ini deploy.yml
 ```
 
+
 ## ハマりやすいポイント
 
 #### playbookの実行に失敗した場合
@@ -163,6 +159,7 @@ safe_to_bootstrap: 1
 ```
 # service mysql start
 ```
+
 
 ## 作者
 Hatano Yoshihiko  
