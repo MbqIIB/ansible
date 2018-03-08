@@ -1,0 +1,45 @@
+---
+- name: Initialize OS setting for Linux Servers
+  hosts: linux_servers
+  become: true
+
+#環境変数が必要な場合は以下を設定しておく。
+
+    # vars:
+    # ansible_sudo_pass: 'ansible'
+  # environment:
+    # http_proxy: "http://proxy.jp:8080"
+    # https_proxy: "http://proxy.jp:8080"
+
+  roles:
+    - name: common/locale
+      tags: locale
+    - name: common/packages
+      tags: packages
+    - name: common/users
+      tags: users
+    - name: cmmon/networks
+      tags: net
+    - name: common/resolver
+      tags: resolver
+    - name: common/times
+      tags: time
+
+  post_tasks:
+    - name: Restart target nodes
+      shell: >
+             sleep 2 &&
+             shutdown -r now "Ansible Initialized"
+      async: 5
+      poll: 0
+      ignore_errors: true
+
+    - name: Waiting for servers to come back
+      local_action:
+        module: wait_for
+        host: "{{ ansible_host }}"
+        port: 22
+        state: started
+        delay: 30
+        timeout: 300
+...
